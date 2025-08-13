@@ -1,0 +1,9 @@
+CourseCode,Title,Instructor,MaxEnrollment,CurrentEnrollment
+CS101,Introduction to Programming,Dr. Johnson,20,0
+CS201,Data Structures,Prof. Williams,25,0
+MATH101,Calculus I,Dr. Martinez,30,0
+MATH201,Calculus II,Prof. Davis,25,0
+ENG101,Engineering Fundamentals,Dr. Anderson,15,0
+BIO101,General Biology,Prof. Thompson,35,0
+PHY101,Physics I,Dr. Garcia,20,0
+CS301,Database Systems,Prof. Lee,18,0
