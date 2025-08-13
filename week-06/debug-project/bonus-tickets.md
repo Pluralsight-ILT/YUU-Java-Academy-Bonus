@@ -167,7 +167,7 @@ Implement a simple observer pattern to notify when library operations occur (wit
 ## **Bonus Ticket #25: Immutable Value Objects**
 **Priority:** High  
 **Component:** Model Layer  
-**Difficulty:** ⭐⭐⭐⭐
+**Difficulty:** ⭐
 
 **Description:**
 Create immutable value objects for common data like Address, ContactInfo, or ItemDetails while keeping main classes mutable.
