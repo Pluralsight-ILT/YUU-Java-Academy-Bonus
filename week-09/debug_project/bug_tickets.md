@@ -76,17 +76,17 @@ The 7-day retention report is showing 0% (or 0) in the retention_rate_percent co
 **Steps to Reproduce:**
 1. Run the User Retention report
 2. Look at the retention_rate_percent column
-3. Every single row shows 0 or 0%
+3. Every single row shows 0 or 1
 4. Compare retained_users column - some cohorts have non-zero retained users but still show 0% rate
 
 **Expected Behavior:**
 When a cohort has retained users, the retention_rate_percent should show a realistic percentage like 23%, 45%, 67%, etc.
 
 **Actual Behavior:**
-All retention rates show as 0 or 0%, even for cohorts where retained_users is greater than zero.
+All retention rates show as 0 or 1, even for cohorts where retained_users is greater than zero.
 
 **Hint for Debugging:**
-The calculation is there, but something about how the math is being done is causing the result to be 0. Think about integer vs decimal division.
+The calculation is there, but something about how the math is being done is causing the result to be 0 or 1. Think about integer vs decimal division.
 
 ---
 
