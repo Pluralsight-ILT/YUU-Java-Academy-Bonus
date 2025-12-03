@@ -3,7 +3,8 @@
 ## **Bug #1: Artist Search Causes Performance Issues**
 **Priority:** High  
 **Component:** Search & Queries - Search for an artist  
-**Method:** `MangoMusicDataManager.searchArtists()`
+**Class:** `ArtistDao`
+**Method:** `searchArtists()`
 
 **Description:**
 When searching for artists by name, the application appears to work but after running multiple searches, the application starts slowing down significantly. Over time, the application may crash or become unresponsive, especially after performing many artist searches.
@@ -36,7 +37,8 @@ Review your JDBC resource management practices. Every database resource that is 
 ## **Bug #2: View Artist Albums Feature Not Working**
 **Priority:** Critical  
 **Component:** Search & Queries - View artist's albums  
-**Method:** `MangoMusicDataManager.getAlbumsByArtist()`
+**Class:** `AlbumDao`
+**Method:** `getAlbumsByArtist()`
 
 **Description:**
 When trying to view albums for a specific artist, the application throws an error and returns no results.
@@ -66,7 +68,8 @@ When you see a SQLException, read the error message carefully - it will tell you
 ## **Bug #3: User Search Only Finds Username Matches**
 **Priority:** Medium  
 **Component:** Search & Queries - Look up user by username  
-**Method:** `MangoMusicDataManager.searchUsers()`
+**Class:** `UserDao`
+**Method:** `searchUsers()`
 
 **Description:**
 The user lookup feature is supposed to search both username and email fields, but it only seems to find matches in the username field. When searching for part of an email address, no results are returned even though users with that email exist.
@@ -98,7 +101,8 @@ When using PreparedStatement with multiple parameters, each ? placeholder needs 
 ## **Bug #4: View User Plays Causes Application Instability**
 **Priority:** High  
 **Component:** Search & Queries - View user's recent plays  
-**Method:** `MangoMusicDataManager.getUserRecentPlays()`
+**Class:** `AlbumPlayDao`
+**Method:** `getUserRecentPlays()`
 
 **Description:**
 After viewing user play history several times, the application becomes noticeably slower. Eventually, after checking 10-15 different users, the application may display errors about too many connections or run out of resources.
@@ -131,7 +135,8 @@ This method handles database resources differently than other methods. Look at h
 ## **Bug #5: Find Albums by Genre - Security Vulnerability**
 **Priority:** Critical  
 **Component:** Search & Queries - Find albums by genre  
-**Method:** `MangoMusicDataManager.getAlbumsByGenre()`
+**Class:** `AlbumDao`
+**Method:** `getAlbumsByGenre()`
 
 **Description:**
 The security team has flagged the "Find albums by genre" feature as having a potential SQL injection vulnerability. While it works for normal genre names, malicious input could potentially access or modify database data.
@@ -163,7 +168,8 @@ There are two ways to execute SQL queries in JDBC - one is safe, one is not. Che
 ## **Bug #6: Search Albums Works But Uses Poor Practice**
 **Priority:** Low  
 **Component:** Search & Queries - Search albums by title  
-**Method:** `MangoMusicDataManager.searchAlbums()`
+**Class:** `AlbumDao`
+**Method:** `searchAlbums()`
 
 **Description:**
 The album search feature works correctly and returns the right results, but the code review team noticed that one of the fields is being retrieved inefficiently. The code gets it as one data type and then converts it to another, which is unnecessary and could cause problems.
@@ -178,7 +184,7 @@ The album search feature works correctly and returns the right results, but the 
 1. Go to "Search & Queries"
 2. Select "Search albums by title"
 3. Search for any album - it works fine
-4. Review the code in `searchAlbums()` method
+4. Review the code in `searchAlbums()` method in `AlbumDao`
 5. Notice one field is retrieved inefficiently
 
 **Expected Behavior:**
@@ -197,7 +203,7 @@ Look at the different ResultSet getter methods available (getString, getInt, get
 For each bug ticket:
 1. **Understand the business problem** - Read what's wrong from a user perspective
 2. **Reproduce the issue** - Follow the steps to see the incorrect behavior
-3. **Review the code** - Find the method mentioned and identify the JDBC issue
+3. **Review the code** - Find the DAO class and method mentioned, identify the JDBC issue
 4. **Fix the bug** - Make the necessary changes to proper JDBC practices
 5. **Test your fix** - Verify the feature now works correctly
 6. **Document your fix** - Note what was wrong and how you fixed it
@@ -217,3 +223,12 @@ For each bug ticket:
 - PreparedStatement vs Statement security
 - Appropriate ResultSet getter methods
 - Connection and resource lifecycle management
+
+**DAO Architecture:**
+The application uses separate Data Access Objects (DAOs) for different entities:
+- `ArtistDao` - Handles artist-related database operations
+- `AlbumDao` - Handles album-related database operations
+- `UserDao` - Handles user-related database operations
+- `AlbumPlayDao` - Handles album play history operations
+- `ReportsDao` - Handles analytics and reporting queries
+- `DataManager` - Manages database connections for all DAOs
