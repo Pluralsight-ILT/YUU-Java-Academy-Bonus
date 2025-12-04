@@ -32,20 +32,21 @@ Create a report that shows the top 5 most-played albums for each genre. This mea
 - Use all historical play data (no date filter)
 
 **Technical Requirements:**
-1. **SQL Query:** You'll need to use a subquery or window function approach. Consider:
-   - Grouping plays by genre and album
-   - Ranking albums within each genre
-   - Filtering to top 5 per genre
+1. **SQL Query:** You'll need to use a subquery approach to calculate rankings. Consider:
+   - Group plays by genre and album to get play counts
+   - Use a correlated subquery to calculate the rank (count how many albums in the same genre have MORE plays)
+   - Filter to only show ranks 1-5
+   - Order results by genre and play count
    
-2. **DAO Method:** Add to `MangoMusicDataManager.java`:
+2. **DAO Method:** Add to `ReportsDao.java`:
 ```java
    public List<ReportResult> getMostPlayedAlbumsByGenre()
 ```
 
 3. **UI Integration:** Update `SpecialReportsScreen.java`:
-   - Replace the "not implemented" message in `showMostPlayedAlbumsByGenre()`
-   - Call your new DAO method
-   - Display results in a formatted table
+   - The method `showMostPlayedAlbumsByGenre()` is already created
+   - Call your new DAO method from this method
+   - Results will display automatically in the formatted table
 
 **Expected Output Format:**
 ```
@@ -81,9 +82,35 @@ Pop             Thriller                       Michael Jackson         1,987    
 - Content team can identify genre-specific hits
 
 **Hints:**
-- You might need to use a subquery that ranks albums within genres
-- The SQL `ROW_NUMBER()` window function or a derived table with ranking logic could be useful
-- Remember to join album_plays → albums → artists to get genre information
+- Think about how to calculate rank: "How many albums in this same genre have MORE plays than me?"
+- This can be done with a correlated subquery that counts albums in the same genre with higher play counts
+- Add 1 to that count to get the actual rank (if 0 albums have more plays, you're rank 1)
+- Use a subquery in the SELECT clause to calculate this rank for each album
+- Wrap everything in an outer query to filter where `genre_rank <= 5`
+- The correlated subquery pattern: `(SELECT COUNT(*) + 1 FROM ... WHERE same_genre AND more_plays)`
+
+**Query Pattern to Use:**
+Your query should follow this general structure:
+```sql
+SELECT genre, album_title, artist_name, play_count, genre_rank
+FROM (
+    SELECT 
+        ar.primary_genre as genre,
+        al.title as album_title,
+        ar.name as artist_name,
+        COUNT(ap.play_id) as play_count,
+        (
+            -- Subquery that counts albums with MORE plays in same genre
+            -- This gives you the rank
+        ) as genre_rank
+    FROM album_plays ap
+    JOIN albums al ON ...
+    JOIN artists ar ON ...
+    GROUP BY ...
+) ranked
+WHERE genre_rank <= 5
+ORDER BY genre, play_count DESC
+```
 
 ---
 
