@@ -2,7 +2,7 @@
 
 These are new reports that need to be built from scratch. You'll need to:
 1. Write the SQL query
-2. Add a method to `MangoMusicDataManager.java`
+2. Add a method to `ReportsDao.java`
 3. Update the appropriate screen class to call your new method and display results
 
 ---
@@ -150,12 +150,12 @@ Create a report that calculates a "diversity score" for users based on how many 
    - Calculate the diversity score
    - Filter to users with 20+ plays
    
-2. **DAO Method:** Add to `MangoMusicDataManager.java`:
+2. **DAO Method:** Add to `ReportsDao.java`:
 ```java
    public List<ReportResult> getUserDiversityReport()
 ```
 
-3. **UI Integration:** Update `SpecialReportsScreen.java`:
+1. **UI Integration:** Update `SpecialReportsScreen.java`:
    - Replace the "not implemented" message in `showUserDiversityScore()`
    - Call your new DAO method
    - Display results in a formatted table
@@ -238,12 +238,12 @@ Create a report showing listening activity broken down by hour of the day (0-23)
    - Count distinct users per hour
    - Calculate average plays per user
    
-2. **DAO Method:** Add to `MangoMusicDataManager.java`:
+2. **DAO Method:** Add to `ReportsDao.java`:
 ```java
    public List<ReportResult> getPeakListeningHoursReport()
 ```
 
-3. **UI Integration:** Update `SpecialReportsScreen.java`:
+1. **UI Integration:** Update `SpecialReportsScreen.java`:
    - Replace the "not implemented" message in `showPeakListeningHours()`
    - Call your new DAO method
    - Display results in a formatted table
