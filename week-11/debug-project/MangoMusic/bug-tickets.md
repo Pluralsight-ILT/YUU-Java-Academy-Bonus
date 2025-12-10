@@ -39,36 +39,42 @@ All album endpoints return 404 Not Found even though the controller class exists
 
 ---
 
-## **Bug #2: Wrong HTTP Method Annotation**
-**Severity:** Medium  
+## **Bug #2: Wrong HTTP Method Annotation - APPLICATION WON'T START**
+**Severity:** CRITICAL - App Startup Failure  
 **Component:** UserController - deleteUser method  
-**Priority:** Fix Second
+**Priority:** Must Fix FIRST (Before Any Testing)
 
 **Symptom:**
-When attempting to delete a user via DELETE request, the server responds with 405 Method Not Allowed. The endpoint exists but won't accept DELETE requests.
+The Spring Boot application FAILS TO START with an error about "Ambiguous mapping" for `/api/users/{id}`. The error message says two methods are trying to handle the same GET request path.
 
 **Steps to Reproduce:**
-1. Make DELETE request to http://localhost:8080/api/users/999
-2. Observe 405 Method Not Allowed error
-3. Check server logs - no method found for DELETE
+1. Try to start the Spring Boot application
+2. Observe application fails to start
+3. Check console logs for error: "Ambiguous mapping. Cannot map 'userController' method"
+4. Error mentions both getUserById and deleteUser methods conflict
 
 **Expected Behavior:**
-- DELETE /api/users/999 should return 404 Not Found (user doesn't exist)
-- DELETE /api/users/1 should return 204 No Content (successful deletion)
+- Application should start successfully
+- DELETE /api/users/{id} should be handled by deleteUser method
+- GET /api/users/{id} should be handled by getUserById method
 
 **Actual Behavior:**
-- DELETE requests return 405 Method Not Allowed
-- Server indicates no handler method for DELETE at this path
+- Application refuses to start
+- Spring Boot detects two methods with identical mappings: GET /api/users/{id}
+- Error: "There is already 'userController' bean method mapped"
 
 **Debugging Tips:**
-- Look at the deleteUser method in UserController.java
-- What annotation is currently on the method?
+- **CRITICAL:** This bug prevents the application from starting - you MUST fix it before you can test ANY endpoints
+- Look at BOTH getUserById and deleteUser methods in UserController.java
+- What HTTP method annotations do they each have?
+- Are both methods using @GetMapping for the same path?
 - What annotation should be used for DELETE requests?
-- Compare with the deleteArtist method in ArtistController
-- Is the method mapped to the right HTTP verb?
+- Compare with deleteArtist in ArtistController - what annotation does it use?
 
 **Success Criteria:**
-- DELETE /api/users/999 returns 404 Not Found
+- Application starts successfully without errors
+- DELETE /api/users/999999 returns 404 Not Found
+- GET /api/users/1 returns 200 OK with user data
 - Insomnia test "Users - Delete" passes
 
 ---
