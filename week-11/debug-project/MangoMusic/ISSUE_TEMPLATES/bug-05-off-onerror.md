@@ -1,11 +1,11 @@
 ---
-name: "Bug #7: Off-by-One Error"
+name: "Bug #5: Off-by-One Error"
 about: Fix off-by-one error
 labels: bug, low-priority
-title: "Bug #7: Off-by-One Error"
+title: "Bug #5: Off-by-One Error"
 ---
 
-## Bug #7: Off-by-One Error
+## Bug #5: Off-by-One Error
 
 **Severity:** Low  
 **Component:** AlbumPlayService - getUserRecentPlays method  

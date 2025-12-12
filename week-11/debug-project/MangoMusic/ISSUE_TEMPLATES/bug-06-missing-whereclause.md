@@ -1,11 +1,11 @@
 ---
-name: "Bug #8: All Updates Broken"
+name: "Bug #6: All Updates Broken"
 about: Fix All Updates Broken - CRITICAL DATA CORRUPTION BUG
 labels: bug, critical
-title: "Bug #8: All Updates Broken"
+title: "Bug #6: All Updates Broken"
 ---
 
-## Bug #8: All Updates Broken
+## Bug #6: All Updates Broken
 
 **Severity:** Critical  
 **Component:** UserDao - updateUser method  
