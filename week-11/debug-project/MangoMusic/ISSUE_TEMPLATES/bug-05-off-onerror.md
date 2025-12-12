@@ -1,15 +1,15 @@
 ---
-name: "Bug #7: Off-by-One Error in Pagination Logic"
-about: Fix off-by-one error in AlbumPlayService getUserRecentPlays method
+name: "Bug #7: Off-by-One Error"
+about: Fix off-by-one error
 labels: bug, low-priority
-title: "Bug #7: Off-by-One Error in Pagination Logic"
+title: "Bug #7: Off-by-One Error"
 ---
 
-## Bug #7: Off-by-One Error in Pagination Logic
+## Bug #7: Off-by-One Error
 
 **Severity:** Low  
 **Component:** AlbumPlayService - getUserRecentPlays method  
-**Priority:** Fix Seventh
+**Priority:** Low
 
 ### Symptom
 When requesting a user's recent plays with a limit parameter, the API consistently returns one fewer result than requested. For example, requesting limit=20 returns only 19 plays, limit=5 returns only 4 plays.

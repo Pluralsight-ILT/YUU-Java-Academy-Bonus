@@ -1,15 +1,15 @@
 ---
-name: "Bug #4: Missing @RequestBody Annotation"
-about: Fix missing @RequestBody annotation on AlbumPlayController createPlay method
+name: "Bug #4: 400 Bad Request"
+about: Fix 400 Bad Request
 labels: bug, high-priority
-title: "Bug #4: Missing @RequestBody Annotation"
+title: "Bug #4: 400 Bad Request"
 ---
 
-## Bug #4: Missing @RequestBody Annotation
+## Bug #4: 400 Bad Request
 
 **Severity:** High  
 **Component:** AlbumPlayController - createPlay method  
-**Priority:** Fix Fourth
+**Priority:** High
 
 ### Symptom
 When attempting to create a new play via POST request with valid JSON in the request body, the server returns 400 Bad Request or the service layer receives a null object causing NullPointerException.

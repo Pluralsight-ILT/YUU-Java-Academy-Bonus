@@ -4,10 +4,10 @@ Your task is to debug and fix the MangoMusic Spring Boot API. There are 8 bugs p
 
 ---
 
-## **Bug #1: Missing @RestController Annotation**
+## **Bug #1: 404 not found**
 **Severity:** High  
 **Component:** AlbumController  
-**Priority:** Fix First
+**Priority:** High
 
 **Symptom:**
 All album endpoints return 404 Not Found even though the controller class exists and has methods defined.
@@ -39,10 +39,10 @@ All album endpoints return 404 Not Found even though the controller class exists
 
 ---
 
-## **Bug #2: Wrong HTTP Method Annotation - APPLICATION WON'T START**
+## **Bug #2: APPLICATION WON'T START**
 **Severity:** CRITICAL - App Startup Failure  
 **Component:** UserController - deleteUser method  
-**Priority:** Must Fix FIRST (Before Any Testing)
+**Priority:** Critical
 
 **Symptom:**
 The Spring Boot application FAILS TO START with an error about "Ambiguous mapping" for `/api/users/{id}`. The error message says two methods are trying to handle the same GET request path.
@@ -79,10 +79,10 @@ The Spring Boot application FAILS TO START with an error about "Ambiguous mappin
 
 ---
 
-## **Bug #3: Missing @PathVariable Annotation**
+## **Bug #3: 500 Internal Server Error**
 **Severity:** High  
 **Component:** ArtistController - getArtistById method  
-**Priority:** Fix Third
+**Priority:** High
 
 **Symptom:**
 When trying to get a specific artist by ID, the server returns 500 Internal Server Error with a message about parameter binding failure or missing required parameter.
@@ -114,10 +114,10 @@ When trying to get a specific artist by ID, the server returns 500 Internal Serv
 
 ---
 
-## **Bug #4: Missing @RequestBody Annotation**
+## **Bug #4: 400 Bad Request**
 **Severity:** High  
 **Component:** AlbumPlayController - createPlay method  
-**Priority:** Fix Fourth
+**Priority:** High
 
 **Symptom:**
 When attempting to create a new play via POST request with valid JSON in the request body, the server returns 400 Bad Request or the service layer receives a null object causing NullPointerException.
@@ -196,10 +196,10 @@ When requesting recent albums with a reasonable limit parameter (like 10 or 50),
 
 ---
 
-## **Bug #5: Off-by-One Error in Pagination Logic**
+## **Bug #5: Off-by-One Error**
 **Severity:** Low  
 **Component:** AlbumPlayService - getUserRecentPlays method  
-**Priority:** Fix Seventh
+**Priority:** Low
 
 **Symptom:**
 When requesting a user's recent plays with a limit parameter, the API consistently returns one fewer result than requested. For example, requesting limit=20 returns only 19 plays, limit=5 returns only 4 plays.
@@ -232,10 +232,10 @@ When requesting a user's recent plays with a limit parameter, the API consistent
 
 ---
 
-## **Bug #6: Missing WHERE Clause in Update Query**
+## **Bug #6: All Updates Broken**
 **Severity:** Critical  
 **Component:** UserDao - updateUser method  
-**Priority:** Fix Eighth (IMPORTANT!)
+**Priority:** IMPORTANT!
 
 **Symptom:**
 When attempting to update a specific user via PUT request, the operation appears successful (returns 200 OK), but ALL users in the database get updated with the same data. This is a serious data corruption issue.
@@ -254,9 +254,9 @@ When attempting to update a specific user via PUT request, the operation appears
   "country": "US"
 }
 ~~~
-5. Check user 1: GET http://localhost:8080/api/users/1 - updated correctly
-6. Check user 2: GET http://localhost:8080/api/users/2 - ALSO updated with same data!
-7. All users in database now have identical data
+1. Check user 1: GET http://localhost:8080/api/users/1 - updated correctly
+2. Check user 2: GET http://localhost:8080/api/users/2 - ALSO updated with same data!
+3. All users in database now have identical data
 
 **Expected Behavior:**
 - PUT /api/users/1 should ONLY update the user with userId = 1

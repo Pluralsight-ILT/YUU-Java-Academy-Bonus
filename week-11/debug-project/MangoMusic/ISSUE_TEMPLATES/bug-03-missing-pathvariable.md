@@ -1,15 +1,15 @@
 ---
-name: "Bug #3: Missing @PathVariable Annotation"
-about: Fix missing @PathVariable annotation on ArtistController getArtistById method
+name: "Bug #3: 500 Internal Server Error"
+about: 500 Internal Server Error
 labels: bug, high-priority
-title: "Bug #3: Missing @PathVariable Annotation"
+title: "Bug #3: 500 Internal Server Error"
 ---
 
-## Bug #3: Missing @PathVariable Annotation
+## Bug #3: 500 Internal Server Error
 
 **Severity:** High  
 **Component:** ArtistController - getArtistById method  
-**Priority:** Fix Third
+**Priority:** High
 
 ### Symptom
 When trying to get a specific artist by ID, the server returns 500 Internal Server Error with a message about parameter binding failure or missing required parameter.

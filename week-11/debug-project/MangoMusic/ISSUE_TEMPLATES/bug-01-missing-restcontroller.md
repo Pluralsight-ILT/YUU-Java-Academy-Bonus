@@ -1,15 +1,15 @@
 ---
-name: "Bug #1: Missing @RestController Annotation"
-about: Fix missing @RestController annotation on AlbumController
+name: "Bug #1: 404 not found"
+about: Fix 404 not found error
 labels: bug, high-priority
-title: "Bug #1: Missing @RestController Annotation"
+title: "Bug #1: 404 not found"
 ---
 
-## Bug #1: Missing @RestController Annotation
+## Bug #1: 404 not found
 
 **Severity:** High  
 **Component:** AlbumController  
-**Priority:** Fix First
+**Priority:** High
 
 ### Symptom
 All album endpoints return 404 Not Found even though the controller class exists and has methods defined.

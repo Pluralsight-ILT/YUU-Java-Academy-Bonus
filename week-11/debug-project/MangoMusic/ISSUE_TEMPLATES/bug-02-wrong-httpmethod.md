@@ -1,15 +1,15 @@
 ---
-name: "Bug #2: Wrong HTTP Method Annotation - APPLICATION WON'T START"
+name: "Bug #2: APPLICATION WON'T START"
 about: Fix incorrect HTTP method annotation causing app startup failure
 labels: bug, critical-priority, blocking
-title: "Bug #2: Wrong HTTP Method Annotation - APPLICATION WON'T START"
+title: "Bug #2: APPLICATION WON'T START"
 ---
 
-## Bug #2: Wrong HTTP Method Annotation
+## Bug #2: Application won't start
 
 **Severity:** CRITICAL - App Startup Failure  
 **Component:** UserController - deleteUser method  
-**Priority:** Must Fix FIRST (Before Any Testing)
+**Priority:** Critical
 
 ### ⚠️ CRITICAL WARNING
 **This bug prevents the Spring Boot application from starting. You cannot test ANY endpoints until this is fixed.**

@@ -1,15 +1,15 @@
 ---
-name: "Bug #8: Missing WHERE Clause in Update Query"
-about: Fix missing WHERE clause in UserDao updateUser method - CRITICAL DATA CORRUPTION BUG
+name: "Bug #8: All Updates Broken"
+about: Fix All Updates Broken - CRITICAL DATA CORRUPTION BUG
 labels: bug, critical
-title: "Bug #8: Missing WHERE Clause in Update Query"
+title: "Bug #8: All Updates Broken"
 ---
 
-## Bug #8: Missing WHERE Clause in Update Query
+## Bug #8: All Updates Broken
 
 **Severity:** Critical  
 **Component:** UserDao - updateUser method  
-**Priority:** Fix Eighth (IMPORTANT!)
+**Priority:** Critical
 
 ### Symptom
 When attempting to update a specific user via PUT request, the operation appears successful (returns 200 OK), but ALL users in the database get updated with the same data. This is a serious data corruption issue.
