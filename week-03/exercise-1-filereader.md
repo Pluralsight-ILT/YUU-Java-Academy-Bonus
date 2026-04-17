@@ -1,6 +1,8 @@
-# **Exercises – File Reader with Error Handling**
+# **Exercises: File Reader with Error Handling**
 
-In these exercises you will create a File Reader application. You will practice using BufferedReader to read text files and implement try/catch blocks for proper error handling.
+Read a text file using `BufferedReader`, count lines and characters, and handle file errors with try/catch.
+
+Create your own text file with whatever content you want before running the program.
 
 Remember to create your projects in the pluralsight/workbook-3 folder.
 
@@ -8,34 +10,14 @@ Remember to create your projects in the pluralsight/workbook-3 folder.
 
 ## **EXERCISE 1**
 
-Create a Java application named FileReader. This application will read a text file using BufferedReader and handle potential file errors with try/catch blocks.
+Create a Java application named `FileReader`.
 
-You will be required to create your own file and add whatever you would like. We recommend using a text file format.
-
-**Remember:** When creating a new Java project, create a new git repository and commit your changes often! Don't forget to push to github.com. Always create the Github repository before creating a new Java project.
+**Remember:** When creating a new Java project, create a new git repository and **commit your changes often!** Don't forget to push to github.com. Always create the Github repository before creating a new Java project.
 
 **Requirements:**
 - Use Scanner to prompt for a filename
-- Create a readFile() method that uses BufferedReader and FileReader to read the file
-- Implement try/catch blocks to handle FileNotFoundException and IOException
-- Count the total lines and characters while reading
-- Display the file contents along with statistics
-- Use proper resource management (close the BufferedReader)
-- Handle both successful file reading and error cases with appropriate messages
-
-**Expected Output Example:**
-```
-=== File Reader ===
-
-Enter filename: sample.txt
-
-=== File Contents ===
-Line 1: Hello World
-Line 2: This is a test file
-Line 3: Java programming is fun
-
-=== File Statistics ===
-Total lines: 3
-Total characters: 58
-File read successfully!
-```
+- Create a `readFile()` method using `BufferedReader` and `FileReader` to read and print the file contents
+- Count total lines and characters while reading
+- Handle `FileNotFoundException` and `IOException` with try/catch
+- Close the `BufferedReader` when done
+- Print file statistics after reading

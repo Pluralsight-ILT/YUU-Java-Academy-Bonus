@@ -1,6 +1,6 @@
-# **Exercises – String Formatting Challenge**
+# **Exercises: String Formatting Challenge**
 
-In these exercises you will create a Personal Information Formatter application. You will practice string concatenation techniques and use Math class methods to format numerical data in different ways.
+Given a set of personal and financial variables, build several formatted output strings: a name display, a profile summary, and a salary breakdown showing three different levels of rounding.
 
 Remember to create your projects in the pluralsight/workbook-1 folder.
 
@@ -8,33 +8,42 @@ Remember to create your projects in the pluralsight/workbook-1 folder.
 
 ## **EXERCISE 2**
 
-Create a Java application named PersonalInfoFormatter. This application will take personal information stored in variables and format it into multiple professional output strings using various concatenation techniques.
+Create a Java application named `PersonalInfoFormatter`.
 
-**Remember:** When creating a new Java project, create a new git repository and commit your changes often! Don't forget to push to github.com. Always create the Github repository before creating a new Java project.
+**Remember:** When creating a new Java project, create a new git repository and **commit your changes often!** Don't forget to push to github.com. Always create the Github repository before creating a new Java project.
 
-**Requirements:**
-- Create variables for: firstName = "Sarah", lastName = "Johnson", age = 28, annualSalary = 67543.789
-- Use Math class methods to format the salary in three different ways: rounded to nearest dollar, rounded to nearest thousand, and rounded to two decimal places
-- Create at least 4 different formatted output strings using various string concatenation approaches
-- Display a formal introduction, a brief summary, a financial overview, and a custom formatted message
-- Demonstrate different concatenation techniques (+ operator, multiple operations, etc.)
+Start with these variables. Do not change the values:
 
-**Expected Output Example:**
+```java
+String firstName = "Sarah";
+String lastName = "Johnson";
+int age = 28;
+double annualSalary = 67543.789;
 ```
-=== Personal Information Formatter ===
 
-Formal Introduction: Mr. David Wilson, age 34
+---
 
-Brief Summary: David Wilson is 34 years old and works in our company.
+### Rounding with Math
 
-Financial Overview: Annual salary of $72544.00 (rounded: $73000)
+Before you use them, understand what these methods actually do:
 
-Custom Message: Hello! My name is David Wilson. 
-I am 34 years old and my current salary is $72544.
+- `Math.round(value)`: rounds to the nearest whole number (67543.789 → 67544)
+- `Math.floor(value / 1000) * 1000`: rounds down to the nearest thousand (67543.789 → 67000)
+- `Math.round(value * 100) / 100.0`: shifts the decimal, rounds, then shifts back (67543.789 → 67543.79)
 
-=== Salary Formatting Examples ===
-Original: $72544.234
-Rounded to dollar: $72544
-Rounded to thousand: $73000  
-Two decimal places: $72544.23
-```
+Each one has a use case. A rounded-to-dollar salary is good for a quick display. Rounded-to-thousand is useful for ranges or reports. Two decimal places is what you'd show on a formal document.
+
+Compute all three and store them in variables before building your output strings.
+
+---
+
+### What to Build
+
+Build at least four output strings using string concatenation. Your output should include:
+
+- A **name display**: something that shows Sarah's full name and age in a readable line
+- A **profile summary**: a sentence or two describing who she is, written like it might appear in an HR system or employee directory
+- A **salary section**: show the original salary value alongside all three rounded versions, labeled clearly so a reader knows what they're looking at
+- A **formatted message**: write it as if Sarah is introducing herself, pulling her name, age, and a salary figure together into one readable paragraph
+
+Your output doesn't need to match any exact format, but it should be clean, labeled, and consistent.

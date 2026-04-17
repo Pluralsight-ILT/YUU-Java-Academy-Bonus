@@ -1,6 +1,6 @@
-# **Exercises – Mathematical Expression Builder**
+# **Exercises: Mathematical Expression Builder**
 
-In these exercises you will create a Mathematical Expression Builder application. You will demonstrate operator precedence and practice using variables to store intermediate calculations while building complex mathematical expressions step-by-step.
+Java evaluates operators in a specific order, and that order changes your result. Write a program that evaluates the same values two different ways and prints both results so the difference is clear.
 
 Remember to create your projects in the pluralsight/workbook-1 folder.
 
@@ -8,24 +8,37 @@ Remember to create your projects in the pluralsight/workbook-1 folder.
 
 ## **EXERCISE 1**
 
-Create a Java application named MathExpressionBuilder. This application will calculate a complex mathematical expression by breaking it down into steps and demonstrating how operator precedence affects the results.
+Create a Java application named `MathExpressionBuilder`.
 
-**Remember:** When creating a new Java project, create a new git repository and commit your changes often! Don't forget to push to github.com. Always create the Github repository before creating a new Java project.
+**Remember:** When creating a new Java project, create a new git repository and **commit your changes often!** Don't forget to push to github.com. Always create the Github repository before creating a new Java project.
 
-**Requirements:**
-- Use the values: `int x = 12`, `int y = 7`, `int z = 2`, `double w = 1.8`
-- Calculate the expression `x + y * z - w` both directly and step-by-step using intermediate variables
-- Show how adding parentheses `(x + y) * z - w` changes the result
-- Use string concatenation to display all calculations with clear, descriptive output
-- Demonstrate that operator precedence matters by comparing the two different results
+Start by declaring these four variables:
 
-**Expected Output Example:**
+```java
+int x = 12;
+int y = 7;
+int z = 2;
+double w = 1.8;
 ```
-=== Mathematical Expression Builder ===
-Original expression: 12 + 7 * 2 - 1.8
-Step-by-step result: 24.2
-Direct calculation: 24.2
 
-With parentheses: (12 + 7) * 2 - 1.8 = 36.2
-Difference: 12.0
+Now work through two versions of a calculation and print both results so you can compare them.
+
+**Version 1:** evaluate this expression:
+
 ```
+x + y * z - w
+```
+
+Before you run it, work it out by hand. What does Java do first? Then write the code two ways: once as a single expression, and once broken into intermediate variables that show each step. Both should give you the same answer. If they don't, something's off in your step-by-step.
+
+**Version 2:** now add parentheses:
+
+```
+(x + y) * z - w
+```
+
+Same values, different grouping. Print this result alongside the first one.
+
+Your output should make it clear to anyone reading it what each number represents. You decide the format. Just make it readable. The two results are different, and that difference is the whole point.
+
+Once you have it working, can you explain in a comment or in your output label *why* they differ?
