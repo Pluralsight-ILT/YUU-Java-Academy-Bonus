@@ -8,7 +8,7 @@ Remember to create your projects in the `pluralsight/workbook-6` folder.
 
 ## **Part 1**
 
-Create a Java application named `GenericLogger`.
+Create a Java application named `generic-logger`.
 
 **Remember:** When creating a new Java project, create a new git repository and **commit your changes often!** Don't forget to push to github.com. Always create the Github repository before creating a new Java project.
 
@@ -47,12 +47,3 @@ Prove the type safety that generics give you.
 [WARNING] (severity: 3) Memory usage above 90%
 [WARNING] (severity: 3) CPU spike detected
 ```
-
----
-
-**Key concepts this exercise covers:**
-
-- Bounded type parameters (`<T extends LogLevel>`) and why they're more powerful than plain `<T>`
-- Calling superclass methods (`getLabel()`, `getSeverity()`) inside a generic class, because `T` is guaranteed to be a `LogLevel`
-- How the compiler enforces type constraints — a `Logger<Error>` *cannot* accept a `Debug` at compile time, not just at runtime
-- The difference between using generics for flexibility vs. using them for **guarantees**

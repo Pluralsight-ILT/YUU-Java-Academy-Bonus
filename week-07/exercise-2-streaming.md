@@ -1,4 +1,4 @@
-# **Exercises – Streams with TV Channel Data**
+# **Exercises: Streams with TV Channel Data**
 
 In these exercises you will create a TV Channel Analytics system using Java Streams to process and analyze television programming data. You will practice filtering, mapping, sorting, and collecting data using stream operations.
 
@@ -8,9 +8,9 @@ Remember to create your projects in the pluralsight/workbook-6 folder.
 
 ## **EXERCISE 2**
 
-Create a TV programming analysis system using Java Streams to process channel and show data. Learn to use stream operations for data filtering, transformation, and aggregation.
+Create a Java application named `channel-analytics` that uses Java Streams to process channel and show data. Learn to use stream operations for data filtering, transformation, and aggregation.
 
-**Remember:** When creating a new Java project, create a new git repository and commit your changes often! Don't forget to push to github.com. Always create the Github repository before creating a new Java project.
+**Remember:** When creating a new Java project, create a new git repository and **commit your changes often!** Don't forget to push to github.com. Always create the Github repository before creating a new Java project.
 
 **Requirements:**
 - Create a `TVShow` class with fields: title, genre, rating, duration, channel, isOriginal
@@ -31,38 +31,35 @@ Create a TV programming analysis system using Java Streams to process channel an
 ```
 === TV Channel Analytics ===
 
-Loading channel data... 15 shows across 5 channels loaded.
+Loaded: 15 shows across 5 channels.
 
 Shows longer than 60 minutes:
-- "Game of Thrones" (HBO) - 65 min, Rating: 9.2
-- "The Crown" (Netflix) - 70 min, Rating: 8.8
-- "Breaking Bad" (AMC) - 62 min, Rating: 9.5
+- Game of Thrones (HBO) — 65 min, 9.2
+- The Crown (Netflix) — 70 min, 8.8
+- Breaking Bad (AMC) — 62 min, 9.5
 
 Comedy Shows:
-- "The Office" (NBC) - 22 min, Rating: 8.9
-- "Parks and Recreation" (NBC) - 22 min, Rating: 8.6
-- "Brooklyn Nine-Nine" (FOX) - 23 min, Rating: 8.4
+- The Office (NBC) — 22 min, 8.9
+- Parks and Recreation (NBC) — 22 min, 8.6
+- Brooklyn Nine-Nine (FOX) — 23 min, 8.4
 
 Top-Rated Shows (8.0+):
-1. Breaking Bad - 9.5 
-2. Game of Thrones - 9.2 
-3. The Office - 8.9 
-4. The Crown - 8.8 
+1. Breaking Bad — 9.5
+2. Game of Thrones — 9.2
+3. The Office — 8.9
+4. The Crown — 8.8
 
 Average Duration by Channel:
-- HBO: 52.5 minutes
-- Netflix: 45.0 minutes  
-- NBC: 28.3 minutes
-- AMC: 48.7 minutes
+- HBO: 52.5 min
+- Netflix: 45.0 min
+- NBC: 28.3 min
+- AMC: 48.7 min
 
 Shows by Genre:
-- Drama: 6 shows
-- Comedy: 4 shows
-- Action: 3 shows
-- Documentary: 2 shows
+- Drama: 6, Comedy: 4, Action: 3, Documentary: 2
 
 Channels with Most Originals:
-1. Netflix: 4 original shows
-2. HBO: 3 original shows
-3. NBC: 2 original shows
+1. Netflix: 4
+2. HBO: 3
+3. NBC: 2
 ```
